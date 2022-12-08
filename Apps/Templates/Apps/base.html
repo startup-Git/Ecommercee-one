@@ -1,0 +1,106 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type=" image/x-icon" href="{% static 'Apps/images/fav.png' %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'Apps/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Apps/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Apps/css/style.css' %}">
+    <title>chambox E-commerce | {% block title %}{% endblock title %}</title>
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top py-0">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'Apps/images/Neel.png' %}" width="60" height="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            {% if request.user.is_authenticated %}
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'Home' %}">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                  products 
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="{% url 'category' 'ML' %}">Milk</a>
+                  <a class="dropdown-item" href="{% url 'category' 'CR' %}">Curd</a>
+                  <a class="dropdown-item" href="{% url 'category' 'MS' %}">Milkshake</a>
+                  <a class="dropdown-item" href="{% url 'category' 'LS' %}">Lassi</a>
+                  <a class="dropdown-item" href="{% url 'category' 'GH' %}">Ghee</a>
+                  <a class="dropdown-item" href="{% url 'category' 'PN' %}">Paneer</a>
+                  <a class="dropdown-item" href="{% url 'category' 'CZ' %}">Cheese</a>
+                  <a class="dropdown-item" href="{% url 'category' 'IC' %}">Ice-creams</a>
+                </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="{% url 'about-us' %}">About us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="{% url 'contact-us' %}">Contacts</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
+          </form>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                  ARRoky
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+                  <a class="dropdown-item" href="#">Orders</a>
+                  <a class="dropdown-item" href="{% url 'password-change' %}">Change Password</a>
+                  <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white">Cart 4</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white">Wishlist 4</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link text-white" href="{% url 'login' %}">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="{% url 'registration' %}">Registetion</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+    </nav>
+    {% block banner_slider %}   {% endblock banner_slider %}
+    {% block information %}    {% endblock information %}
+    {% block main-content %}    {% endblock main-content %}
+    <footer>
+        <div class="text-center bg-dark text-light py-3 fixed-bottom">
+            copy right: <i class="fa fa-copyright" aria-hidden="true"></i> 2022 | development | production by: <a href="https://github.com/startup-Git" class="text-decoration-none">ARroky</a>
+        </div>
+    </footer> 
+    <!-- Optional JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="{% static 'Apps/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'Apps/js/all.min.js' %}"></script>
+    <script src="{% static 'Apps/js/myscript.js' %}"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
